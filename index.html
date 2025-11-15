@@ -3,79 +3,136 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>John Scarrow — Battleship-ML Demo</title>
+  <title>John Scarrow — Portfolio</title>
+  <meta name="description" content="John Scarrow — portfolio showcasing web and ML projects (Battleship-ML demo).">
+  <meta property="og:title" content="John Scarrow — Portfolio">
+  <meta property="og:description" content="Portfolio of web and machine learning projects by John Scarrow.">
+  <meta property="og:image" content="/images/image.png">
+  <meta property="og:url" content="https://johnscarrow.github.io/">
   <style>
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
-    header { padding: 1rem; background:#0b1221; color: #fff; }
-    main { height: calc(100vh - 86px); }
-    iframe { width:100%; height:100%; border:0; }
-    .note { padding: .75rem 1rem; background:#fff3cd; color:#663c00; }
+    :root{--bg:#ffffff;--muted:#6b7280;--accent:#0b1221}
+    html,body{height:100%}
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#0f172a; background:var(--bg); }
+    header{padding:1rem;background:var(--accent);color:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:1rem}
+    nav a{color:#d1d5db;text-decoration:none;margin-left:1rem}
+    .hero{padding:3rem 1rem;background:linear-gradient(180deg,#ffffff00,#ffffff);}
+    .hero h1{margin:0;font-size:2rem}
+    .muted{color:var(--muted)}
+    .card{border:1px solid #e6e6e6;border-radius:8px;padding:1rem;background:#fff}
+    .controls{margin-top:.75rem}
+    .btn{display:inline-block;padding:.5rem .75rem;border-radius:6px;background:#0b1221;color:#fff;text-decoration:none;border:0;cursor:pointer}
+    .btn.secondary{background:#efefef;color:#111;border:1px solid #ddd}
+    .note { padding: .75rem 1rem; background:#fff3cd; color:#663c00; border-radius:6px }
+    footer{padding:.75rem 1rem;background:#f6f7fb;color:#222;font-size:.9rem;text-align:center}
+    @media (min-width:700px){ .hero{padding:4rem 1rem} }
   </style>
 </head>
 <body>
   <header>
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
       <div>
-        <h1 style="margin:0;font-size:1.1rem">John Scarrow — Battleship-ML</h1>
-        <p style="margin:.25rem 0 0;font-size:.9rem;opacity:.9">User site that embeds the Battleship-ML WebAssembly demo.</p>
+        <strong style="font-size:1rem">John Scarrow</strong>
       </div>
-      <div style="text-align:right;font-size:.9rem">
-        <a href="https://github.com/JohnScarrow/JohnScarrow" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;">Profile repo</a>
-      </div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/JohnScarrow/JohnScarrow" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
     </div>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>John Scarrow — Portfolio</title>
-        <meta name="description" content="John Scarrow — portfolio showcasing web and ML projects (Battleship-ML demo).">
-        <meta property="og:title" content="John Scarrow — Portfolio">
-        <meta property="og:description" content="Portfolio of web and machine learning projects by John Scarrow.">
-        <meta property="og:image" content="/images/screenshot.svg">
-        <meta property="og:url" content="https://johnscarrow.github.io/">
-        <style>
-          :root{--bg:#ffffff;--muted:#6b7280;--accent:#0b1221}
-          html,body{height:100%}
-          body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#0f172a; background:var(--bg); }
-          header{padding:1rem;background:var(--accent);color:#fff}
-          .container{max-width:1100px;margin:0 auto;padding:1rem}
-          nav a{color:#d1d5db;text-decoration:none;margin-left:1rem}
-          .hero{padding:3rem 1rem;background:linear-gradient(180deg,#ffffff00,#ffffff);}
-          .hero h1{margin:0;font-size:2rem}
-          .muted{color:var(--muted)}
-          .card{border:1px solid #e6e6e6;border-radius:8px;padding:1rem;background:#fff}
-          .controls{margin-top:.75rem}
-          .btn{display:inline-block;padding:.5rem .75rem;border-radius:6px;background:#0b1221;color:#fff;text-decoration:none;border:0;cursor:pointer}
-          .btn.secondary{background:#efefef;color:#111;border:1px solid #ddd}
-          .note { padding: .75rem 1rem; background:#fff3cd; color:#663c00; border-radius:6px }
-          footer{padding:.75rem 1rem;background:#f6f7fb;color:#222;font-size:.9rem;text-align:center}
-          @media (min-width:700px){ .hero{padding:4rem 1rem} }
-      </picture>
+  </header>
 
-      <div id="iframe-area" style="background:#000; border-radius:4px; overflow:hidden; height:58vh;">
-        <iframe id="demo-frame" src="https://johnscarrow.github.io/battleship-ml/" title="Battleship-ML demo" style="width:100%;height:100%;border:0;display:block;"> </iframe>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Hi — I'm John Scarrow</h1>
+        <p class="muted">I build web and machine learning projects, with a focus on practical demos and reproducible experiments. Below are a few highlights and a live demo you can load on demand.</p>
+        <p style="margin-top:.75rem"><a class="btn" href="https://github.com/JohnScarrow/JohnScarrow" target="_blank" rel="noopener noreferrer">View GitHub</a> <a class="btn secondary" href="#projects">See projects</a></p>
       </div>
+    </section>
 
-      <div id="frame-blocked" class="note" style="margin-top:.75rem;display:none;" role="status" aria-live="polite">
-        The demo could not be embedded due to framing/security policies. You can open it directly: <a href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer">Open Battleship-ML</a>
+    <section id="about" class="container" style="padding-top:1rem">
+      <h2>About</h2>
+      <p class="muted">I create interactive web demos and machine learning projects. This site is a lightweight portfolio intended for interviewers — focused, fast, and easy to scan.</p>
+    </section>
+
+    <section id="projects" class="container" style="padding-top:1rem">
+      <h2>Projects</h2>
+      <div class="card" style="margin-top:.5rem">
+        <h3 style="margin:.25rem 0">Battleship-ML — Live demo</h3>
+        <p class="muted">A WebAssembly demo showing a Battleship AI. For performance and to keep this page fast, the demo iframe is not loaded by default — hover the preview for a moment or click <strong>Load demo</strong> to embed it, or open it in a new tab.</p>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:.75rem">
+          <div style="flex:1;min-width:260px">
+            <img id="preview-img" src="/images/image.png" alt="Preview of Battleship-ML demo" style="width:100%;max-height:240px;object-fit:cover;border-radius:6px;border:1px solid #e6e6e6;cursor:pointer" />
+            <div class="controls">
+              <a href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer" class="btn secondary">Open demo</a>
+              <button id="load-demo" class="btn" style="margin-left:.5rem">Load demo</button>
+            </div>
+          </div>
+
+          <div style="flex:1;min-width:300px">
+            <div id="demo-container" style="min-height:240px;border-radius:6px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;color:#fff">
+              <div id="demo-placeholder" style="padding:1rem;text-align:center;color:#ddd">Demo not loaded. Hover the preview (600ms) or click "Load demo" to embed — fallback link available if blocked.</div>
+            </div>
+            <div id="frame-blocked" class="note" style="margin-top:.75rem;display:none;" role="status" aria-live="polite">
+              The demo could not be embedded due to framing/security policies. Open in a new tab: <a href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer">Open Battleship-ML</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section id="contact" class="container" style="padding-top:1rem;padding-bottom:2rem">
+      <h2>Contact</h2>
+      <p class="muted">Find my projects on <a href="https://github.com/JohnScarrow" target="_blank" rel="noopener noreferrer">GitHub</a>. If you'd like a resume copy or references for interviews, email me (link omitted here).</p>
+    </section>
   </main>
 
-  <footer style="padding:0.75rem 1rem;background:#f6f7fb;color:#222;font-size:.9rem;text-align:center;">
-    <div style="max-width:1100px;margin:0 auto;">© John Scarrow — <a href="https://github.com/JohnScarrow/JohnScarrow" target="_blank" rel="noopener noreferrer">Profile repo</a></div>
+  <footer>
+    <div class="container">© John Scarrow — <a href="https://github.com/JohnScarrow/JohnScarrow" target="_blank" rel="noopener noreferrer">Profile repo</a></div>
   </footer>
 
   <script>
-    // Try to detect when the iframe fails to load (e.g., blocked by X-Frame-Options / CSP).
+    // Lazy-load the demo iframe: hover (600ms) or click on preview, or click the button
     (function(){
-      var frame = document.getElementById('demo-frame');
-      var blocked = document.getElementById('frame-blocked');
-      var fallbackNote = document.getElementById('fallback-note');
-      var loaded = false;
-      function showBlocked(){ blocked.style.display = 'block'; fallbackNote.style.display = 'block'; }
-      function hideBlocked(){ blocked.style.display = 'none'; }
-      // If iframe fires load, assume it's ok
-      frame.addEventListener('load', function(){ loaded = true; hideBlocked(); });
-      // After a short timeout, if no load event happened, show the fallback message.
-      setTimeout(function(){ if(!loaded){ showBlocked(); } }, 2500);
+      var loadBtn = document.getElementById('load-demo');
+      var demoContainer = document.getElementById('demo-container');
+      var frameBlocked = document.getElementById('frame-blocked');
+      var previewImg = document.getElementById('preview-img');
+      var demoSrc = 'https://johnscarrow.github.io/battleship-ml/';
+      var hoverTimer = null;
+
+      function showBlocked(){ if(frameBlocked) frameBlocked.style.display = 'block'; }
+      function hideBlocked(){ if(frameBlocked) frameBlocked.style.display = 'none'; }
+
+      function createAndInsertIframe(){
+        if(document.getElementById('demo-frame')) return; // already loaded
+        var iframe = document.createElement('iframe');
+        iframe.id = 'demo-frame';
+        iframe.src = demoSrc;
+        iframe.title = 'Battleship-ML demo';
+        iframe.loading = 'lazy';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = '0';
+        iframe.style.display = 'block';
+        iframe.addEventListener('load', function(){ hideBlocked(); });
+        demoContainer.innerHTML = '';
+        demoContainer.appendChild(iframe);
+        setTimeout(function(){ try { if(!iframe.contentWindow || iframe.clientHeight===0){ showBlocked(); } } catch(e){ showBlocked(); } }, 2500);
+      }
+
+      if(loadBtn) loadBtn.addEventListener('click', createAndInsertIframe);
+      if(previewImg){
+        previewImg.addEventListener('click', function(e){ e.preventDefault(); createAndInsertIframe(); });
+        previewImg.addEventListener('mouseenter', function(){
+          if(hoverTimer) clearTimeout(hoverTimer);
+          hoverTimer = setTimeout(function(){ createAndInsertIframe(); hoverTimer = null; }, 600);
+        });
+        previewImg.addEventListener('mouseleave', function(){ if(hoverTimer){ clearTimeout(hoverTimer); hoverTimer = null; } });
+      }
     })();
   </script>
 </body>
