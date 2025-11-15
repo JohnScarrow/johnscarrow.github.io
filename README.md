@@ -7,6 +7,22 @@ If you create a repository on GitHub with that exact name and push the contents 
 
   https://johnscarrow.github.io/
 
+Resume / downloadable CV
+ - To add a downloadable resume, place `resume.pdf` in this repository root (or `docs/`) and link to it from `index.html` (header or contact section). Example link: `/resume.pdf`.
+
+Analytics (optional)
+ - Plausible (privacy-friendly): add this snippet inside the `<head>` of `index.html` (replace `your-domain.com`):
+
+```html
+<!-- Plausible -->
+<script async defer data-domain="johnscarrow.github.io" src="https://plausible.io/js/plausible.js"></script>
+```
+
+ - Google Analytics (if you prefer): add the GA4 snippet with your measurement ID.
+
+CNAME / Custom domain
+ - To use a custom domain, add a `CNAME` file at the repository root containing your domain (e.g. `example.com`) and configure DNS accordingly.
+
 Quick steps (recommended, using the GitHub CLI `gh`):
 
 ```bash
