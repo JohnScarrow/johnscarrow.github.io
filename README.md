@@ -1,5 +1,8 @@
 This folder is a scaffold for a GitHub "user site" repository named `johnscarrow.github.io`.
 
+[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue?logo=github)](https://johnscarrow.github.io/)  
+[![pages build and deployment status](https://github.com/JohnScarrow/johnscarrow.github.io/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/JohnScarrow/johnscarrow.github.io/actions)
+
 If you create a repository on GitHub with that exact name and push the contents of this folder to its `main` branch, GitHub will serve the site at:
 
   https://johnscarrow.github.io/
