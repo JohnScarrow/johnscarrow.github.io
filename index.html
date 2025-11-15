@@ -23,15 +23,30 @@
         <a href="https://github.com/JohnScarrow/JohnScarrow" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;">Profile repo</a>
       </div>
     </div>
-  </header>
-
-  <div class="note" id="fallback-note" role="status" aria-live="polite">If the demo is blocked from loading in this page, open it directly: <a href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer">https://johnscarrow.github.io/battleship-ml/</a></div>
-
-  <main>
-    <div style="max-width:1100px;margin:0 auto;padding:1rem;">
-      <!-- Preview image shown above the iframe for slow connections or when the iframe is blocked -->
-      <picture style="display:block;margin-bottom:0.75rem">
-        <img src="/images/screenshot.svg" alt="Preview of Battleship-ML demo — replace /images/screenshot.svg with a real screenshot.png or .gif" style="width:100%;max-height:360px;object-fit:cover;border:1px solid #e6e6e6;" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>John Scarrow — Portfolio</title>
+        <meta name="description" content="John Scarrow — portfolio showcasing web and ML projects (Battleship-ML demo).">
+        <meta property="og:title" content="John Scarrow — Portfolio">
+        <meta property="og:description" content="Portfolio of web and machine learning projects by John Scarrow.">
+        <meta property="og:image" content="/images/screenshot.svg">
+        <meta property="og:url" content="https://johnscarrow.github.io/">
+        <style>
+          :root{--bg:#ffffff;--muted:#6b7280;--accent:#0b1221}
+          html,body{height:100%}
+          body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#0f172a; background:var(--bg); }
+          header{padding:1rem;background:var(--accent);color:#fff}
+          .container{max-width:1100px;margin:0 auto;padding:1rem}
+          nav a{color:#d1d5db;text-decoration:none;margin-left:1rem}
+          .hero{padding:3rem 1rem;background:linear-gradient(180deg,#ffffff00,#ffffff);}
+          .hero h1{margin:0;font-size:2rem}
+          .muted{color:var(--muted)}
+          .card{border:1px solid #e6e6e6;border-radius:8px;padding:1rem;background:#fff}
+          .controls{margin-top:.75rem}
+          .btn{display:inline-block;padding:.5rem .75rem;border-radius:6px;background:#0b1221;color:#fff;text-decoration:none;border:0;cursor:pointer}
+          .btn.secondary{background:#efefef;color:#111;border:1px solid #ddd}
+          .note { padding: .75rem 1rem; background:#fff3cd; color:#663c00; border-radius:6px }
+          footer{padding:.75rem 1rem;background:#f6f7fb;color:#222;font-size:.9rem;text-align:center}
+          @media (min-width:700px){ .hero{padding:4rem 1rem} }
       </picture>
 
       <div id="iframe-area" style="background:#000; border-radius:4px; overflow:hidden; height:58vh;">
