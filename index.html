@@ -26,6 +26,9 @@
     .note { padding: .75rem 1rem; background:#fff3cd; color:#663c00; border-radius:6px }
     footer{padding:.75rem 1rem;background:#f6f7fb;color:#222;font-size:.9rem;text-align:center}
     @media (min-width:700px){ .hero{padding:4rem 1rem} }
+    /* Make the demo larger for portfolio view */
+    .demo-large{min-height:720px}
+    @media (max-width:900px){ .demo-large{min-height:420px} }
   </style>
 </head>
 <body>
@@ -69,11 +72,12 @@
             <div class="controls">
               <a href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer" class="btn secondary">Open demo</a>
               <button id="load-demo" class="btn" style="margin-left:.5rem">Load demo</button>
+              <button id="load-autoplay" class="btn secondary" style="margin-left:.5rem">Load &amp; Autoplay</button>
             </div>
           </div>
 
           <div style="flex:1;min-width:300px">
-            <div id="demo-container" style="min-height:240px;border-radius:6px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;color:#fff">
+            <div id="demo-container" class="demo-large" style="min-height:240px;border-radius:6px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;color:#fff">
               <div id="demo-placeholder" style="padding:1rem;text-align:center;color:#ddd">Demo not loaded. Hover the preview (600ms) or click "Load demo" to embed — fallback link available if blocked.</div>
             </div>
             <div id="frame-blocked" class="note" style="margin-top:.75rem;display:none;" role="status" aria-live="polite">
@@ -114,11 +118,13 @@
       function showBlocked(){ if(frameBlocked) frameBlocked.style.display = 'block'; }
       function hideBlocked(){ if(frameBlocked) frameBlocked.style.display = 'none'; }
 
-      function createAndInsertIframe(){
+      function createAndInsertIframe(opts){
         if(document.getElementById('demo-frame')) return; // already loaded
+        var src = demoSrc;
+        if(opts && opts.autoplay){ src += (src.indexOf('?')>-1? '&':'?') + 'autoplay=1'; }
         var iframe = document.createElement('iframe');
         iframe.id = 'demo-frame';
-        iframe.src = demoSrc;
+        iframe.src = src;
         iframe.title = 'Battleship-ML demo';
         iframe.loading = 'lazy';
         iframe.style.width = '100%';
@@ -132,7 +138,9 @@
         setTimeout(function(){ try { if(!iframe.contentWindow || iframe.clientHeight===0){ showBlocked(); } } catch(e){ showBlocked(); } }, 2500);
       }
 
-      if(loadBtn) loadBtn.addEventListener('click', createAndInsertIframe);
+      if(loadBtn) loadBtn.addEventListener('click', function(){ createAndInsertIframe(); });
+      var loadAutoplay = document.getElementById('load-autoplay');
+      if(loadAutoplay) loadAutoplay.addEventListener('click', function(){ createAndInsertIframe({autoplay:true}); });
       if(previewImg){
         // Click loads immediately (useful for touch devices)
         previewImg.addEventListener('click', function(e){ e.preventDefault(); createAndInsertIframe(); });
