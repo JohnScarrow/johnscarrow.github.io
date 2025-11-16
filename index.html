@@ -72,19 +72,6 @@
 
     <section id="projects" class="container" style="padding-top:1rem">
       <h2>Projects</h2>
-      <div class="card" style="margin-top:.5rem">
-        <h3 style="margin:.25rem 0">Battleship-ML — Live demo</h3>
-        <p class="muted">A WebAssembly demo showing a Battleship AI (author). Built in C++ and compiled to WebAssembly via Emscripten; the UI uses a small JS wrapper for rendering and controls. For performance the demo iframe is not loaded by default — hover the preview or click <strong>Load demo</strong> to embed it, or open it in a new tab.</p>
-
-        <div style="margin-top:.75rem;font-size:14px">
-          <strong>Project summary:</strong>
-          <ul style="margin:6px 0 0 18px;color:var(--muted)">
-            <li><strong>Role:</strong> Author — implemented game logic, AI weights, and WASM exports.</li>
-            <li><strong>Tech:</strong> C++, WebAssembly (Emscripten), JavaScript, HTML5 Canvas.</li>
-            <li><strong>Highlights:</strong> Fast Monte-Carlo and heuristic AI blend, live heatmap visualizations, tunable AI weights and batch tournament mode.</li>
-          </ul>
-        </div>
-
         <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;margin-top:.75rem">
           <!-- Left column: textual project info -->
           <div style="flex:1 1 360px;min-width:280px;max-width:720px">
@@ -110,9 +97,14 @@
             <div id="demo-container" class="demo-large" role="region" aria-label="Battleship demo container" style="border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--muted);background:transparent">
             </div>
 
+
             <div id="frame-blocked" class="note" style="margin-top:.75rem;display:none;" role="status" aria-live="polite">
               The demo could not be embedded due to framing/security policies. Open in a new tab: <a href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer">Open Battleship-ML</a>
             </div>
+
+            <p style="margin-top:.6rem">
+              <a id="open-demo-btn" class="btn" href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer">Open Live Demo</a>
+            </p>
 
             <div style="margin-top:.75rem;font-size:13px;color:var(--muted)">
               <strong>Other notable projects</strong>
