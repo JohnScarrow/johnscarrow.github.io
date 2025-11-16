@@ -87,12 +87,7 @@
         <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:.75rem">
               <div style="flex:1;min-width:260px">
               <img id="preview-img" src="/images/image.png" alt="Preview of Battleship-ML demo" tabindex="0" loading="lazy" style="width:100%;object-fit:cover;border-radius:6px;border:1px solid #e6e6e6;cursor:pointer" />
-            <div class="controls">
-              <a href="https://johnscarrow.github.io/battleship-ml/" target="_blank" rel="noopener noreferrer" class="btn secondary">Open demo</a>
-              <button id="load-demo" class="btn" style="margin-left:.5rem">Load demo</button>
-              <button id="load-autoplay" class="btn secondary" style="margin-left:.5rem">Load &amp; Autoplay</button>
             </div>
-          </div>
 
           <div style="flex:1;min-width:300px">
             <div id="demo-container" class="demo-large" role="region" aria-label="Battleship demo container" style="border-radius:6px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;color:#fff">
@@ -183,10 +178,26 @@
 
           // Remove the preview image and insert iframe in its place
           previewParent.innerHTML = '';
-          // Ensure iframe fills parent
-          iframe.style.width = '100%';
+          // Ensure iframe fills parent and scales dynamically
           iframe.style.height = '100%';
           iframe.style.minHeight = '100%';
+          iframe.style.overflow = 'hidden';
+
+          // Adjust parent container styles to prevent scrollbars
+          previewParent.style.height = '100%';
+          previewParent.style.minHeight = '100%';
+          previewParent.style.overflow = 'hidden';
+          previewParent.style.padding = '0';
+          previewParent.style.margin = '0';
+
+          // Add responsive height based on viewport
+          var desiredHeight = (window.innerWidth <= 900) ? '50vh' : '72vh';
+          previewParent.style.height = desiredHeight;
+
+          // Remove play buttons and retain hover functionality
+          if (loadBtn) loadBtn.style.display = 'none';
+          if (loadAutoplay) loadAutoplay.style.display = 'none';
+
           previewParent.appendChild(iframe);
 
           // also hide the placeholder in the main demo container
