@@ -225,9 +225,7 @@
         previewImg.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.preventDefault(); createAndInsertIframe(); } });
         // Hover for desktop: start timer on mouseenter, cancel on mouseleave
         previewImg.addEventListener('mouseenter', function(){
-          if(hoverTimer) clearTimeout(hoverTimer);
-          // On hover, replace the preview image with the live demo
-          hoverTimer = setTimeout(function(){ createAndInsertIframe({replacePreview:true, muted:true}); hoverTimer = null; }, HOVER_DELAY);
+          createAndInsertIframe({autoplay: true, muted: true, replacePreview: true});
         });
         previewImg.addEventListener('mouseleave', function(){ if(hoverTimer){ clearTimeout(hoverTimer); hoverTimer = null; } });
       }
