@@ -170,14 +170,29 @@
         // If requested, replace the preview image (left column) with the iframe
         if (opts.replacePreview && previewImg && previewImg.parentNode) {
           var previewParent = previewImg.parentNode;
-          // Ensure preview parent uses the large demo height
-          previewParent.classList.add('demo-large');
+          // Set a responsive min-height matching the demo area (desktop:72vh, mobile:50vh)
+          var desiredVh = (window.innerWidth <= 900) ? '50vh' : '72vh';
+          previewParent.style.minHeight = desiredVh;
+          previewParent.style.height = 'auto';
+          previewParent.style.background = '#000';
+          previewParent.style.borderRadius = '6px';
+          previewParent.style.overflow = 'hidden';
+          previewParent.style.display = 'flex';
+          previewParent.style.alignItems = 'stretch';
+          previewParent.style.justifyContent = 'center';
+
           // Remove the preview image and insert iframe in its place
           previewParent.innerHTML = '';
+          // Ensure iframe fills parent
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.minHeight = '100%';
           previewParent.appendChild(iframe);
+
           // also hide the placeholder in the main demo container
           var placeholder = document.getElementById('demo-placeholder');
           if (placeholder) placeholder.style.display = 'none';
+
           // quick check if loaded
           setTimeout(function(){ try { if(!iframe.contentWindow || iframe.clientHeight===0){ showBlocked(); } } catch(e){ showBlocked(); } }, 2500);
           return;
