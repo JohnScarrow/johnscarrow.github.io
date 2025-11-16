@@ -145,10 +145,13 @@
       function hideBlocked(){ if(frameBlocked) frameBlocked.style.display = 'none'; }
 
       function createAndInsertIframe(opts){
-        if(document.getElementById('demo-frame')) return; // already loaded
+        // Avoid inserting multiple frames
+        if(document.getElementById('demo-frame')) return; // already loaded somewhere
+        opts = opts || {};
         var src = demoSrc;
-        if(opts && opts.autoplay){ src += (src.indexOf('?')>-1? '&':'?') + 'autoplay=1'; }
-        if(opts && opts.muted){ src += (src.indexOf('?')>-1? '&':'?') + 'muted=1'; }
+        if(opts.autoplay){ src += (src.indexOf('?')>-1? '&':'?') + 'autoplay=1'; }
+        if(opts.muted){ src += (src.indexOf('?')>-1? '&':'?') + 'muted=1'; }
+
         var iframe = document.createElement('iframe');
         iframe.id = 'demo-frame';
         iframe.src = src;
@@ -157,13 +160,30 @@
         iframe.setAttribute('aria-label', 'Battleship-ML demo iframe');
         iframe.setAttribute('title', 'Battleship-ML demo');
         iframe.loading = 'lazy';
-        iframe.title = 'Battleship-ML demo';
         iframe.style.width = '100%';
         iframe.style.height = '100%';
         iframe.style.border = '0';
         iframe.style.display = 'block';
         iframe.className = 'demo-fade-in';
         iframe.addEventListener('load', function(){ hideBlocked(); });
+
+        // If requested, replace the preview image (left column) with the iframe
+        if (opts.replacePreview && previewImg && previewImg.parentNode) {
+          var previewParent = previewImg.parentNode;
+          // Ensure preview parent uses the large demo height
+          previewParent.classList.add('demo-large');
+          // Remove the preview image and insert iframe in its place
+          previewParent.innerHTML = '';
+          previewParent.appendChild(iframe);
+          // also hide the placeholder in the main demo container
+          var placeholder = document.getElementById('demo-placeholder');
+          if (placeholder) placeholder.style.display = 'none';
+          // quick check if loaded
+          setTimeout(function(){ try { if(!iframe.contentWindow || iframe.clientHeight===0){ showBlocked(); } } catch(e){ showBlocked(); } }, 2500);
+          return;
+        }
+
+        // Default behaviour: insert into the demo container (right column)
         demoContainer.innerHTML = '';
         demoContainer.appendChild(iframe);
         setTimeout(function(){ try { if(!iframe.contentWindow || iframe.clientHeight===0){ showBlocked(); } } catch(e){ showBlocked(); } }, 2500);
@@ -180,7 +200,8 @@
         // Hover for desktop: start timer on mouseenter, cancel on mouseleave
         previewImg.addEventListener('mouseenter', function(){
           if(hoverTimer) clearTimeout(hoverTimer);
-          hoverTimer = setTimeout(function(){ createAndInsertIframe(); hoverTimer = null; }, HOVER_DELAY);
+          // On hover, replace the preview image with the live demo
+          hoverTimer = setTimeout(function(){ createAndInsertIframe({replacePreview:true, muted:true}); hoverTimer = null; }, HOVER_DELAY);
         });
         previewImg.addEventListener('mouseleave', function(){ if(hoverTimer){ clearTimeout(hoverTimer); hoverTimer = null; } });
       }
