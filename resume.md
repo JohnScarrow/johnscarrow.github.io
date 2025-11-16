@@ -46,5 +46,5 @@ Education
 
 Contact
 
-Email: (please add email)
+Email: JAScarrow@nic.edu
 GitHub: https://github.com/JohnScarrow
