@@ -91,7 +91,6 @@
 
           <div style="flex:1;min-width:300px">
             <div id="demo-container" class="demo-large" role="region" aria-label="Battleship demo container" style="border-radius:6px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;color:#fff">
-              <div id="demo-placeholder" style="padding:1rem;text-align:center;color:#ddd">Demo not loaded. Hover the preview (600ms) or click "Load demo" to embed — fallback link available if blocked.</div>
             </div>
             <div style="margin-top:.75rem;font-size:13px;color:var(--muted)">
               <strong>Other notable projects</strong>
@@ -202,7 +201,7 @@
 
           // also hide the placeholder in the main demo container
           var placeholder = document.getElementById('demo-placeholder');
-          if (placeholder) placeholder.style.display = 'none';
+          if (placeholder) placeholder.remove();
 
           // quick check if loaded
           setTimeout(function(){ try { if(!iframe.contentWindow || iframe.clientHeight===0){ showBlocked(); } } catch(e){ showBlocked(); } }, 2500);
