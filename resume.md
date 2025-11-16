@@ -39,6 +39,7 @@ Recent Projects
 
 Education
 
+- North Idaho College — Coursework in Computer Science (2024 – Current)
 - Code Fellows, Seattle — Advanced Fullstack JavaScript Development (2017 – 2018)
 - Bellevue College — Coursework in Computer Science (2015 – 2017)
 - Eastlake High School Graduate (2011)
