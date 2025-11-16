@@ -48,3 +48,11 @@ Contact
 
 Email: JAScarrow@nic.edu
 GitHub: https://github.com/JohnScarrow
+
+
+
+Personal Interests & Hobbies
+  - Running AI models locally to explore AI capabilities and optimize use of available hardware resources cost-effectively.
+  - Automotive tuning with stand-alone ECU using Tunerstudio, including hands-on soldering and understanding of electronic components.
+  - Building and flying R/C planes and autonomous flight projects.
+  - Leveraging AI tools to assist in building complex projects and programs requiring deep technical understanding.
