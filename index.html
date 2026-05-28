@@ -54,6 +54,11 @@
       transition: color 0.2s;
     }
     nav ul a:hover { color: #fff; }
+    nav ul a.nav-demo {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    nav ul a.nav-demo:hover { color: #7dd3fc; }
 
     /* ── LAYOUT ── */
     main {
@@ -114,6 +119,12 @@
       border: 2px solid var(--accent);
       color: var(--accent);
     }
+    .btn-demo {
+      background: #0ea5e9;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(14, 165, 233, 0.35);
+    }
+    .btn-demo:hover { opacity: 1; box-shadow: 0 4px 16px rgba(14, 165, 233, 0.5); }
 
     /* ── CARD BASE ── */
     .card {
@@ -196,7 +207,22 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       border-radius: 999px;
-      padding: 2px 10px;
+      padding: 3px 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
     }
     .featured-card h3 {
       font-size: 1.25rem;
@@ -475,6 +501,7 @@
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="https://johnscarrow.github.io/battleship-ml/" class="nav-demo" target="_blank" rel="noopener">▶ Live Demo</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
     <li><a href="https://github.com/JohnScarrow" target="_blank" rel="noopener">GitHub</a></li>
@@ -488,6 +515,7 @@
     <h1>Hi, I'm John Scarrow</h1>
     <p>Computer Science student at North Idaho College building across the full stack — from x86 Assembly games to real-time computer vision systems and C++ game engines. Focused on low-level programming, machine learning, and practical software that ships.</p>
     <div class="hero-btns">
+      <a href="https://johnscarrow.github.io/battleship-ml/" class="btn btn-demo" target="_blank" rel="noopener">▶ Live Demo</a>
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
       <a href="https://github.com/JohnScarrow" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
@@ -516,7 +544,7 @@
 
     <!-- FEATURED -->
     <div class="featured-card">
-      <span class="featured-tag">Featured</span>
+      <span class="featured-tag"><span class="live-dot"></span>Live Demo</span>
       <h3>Battleship-ML — Live WebAssembly Demo</h3>
       <p>C++ game engine compiled to WebAssembly via Emscripten. Two AI agents play against each other using a blend of Monte-Carlo sampling and heuristic weights — fully tunable via CLI parameter sweeps. Watch a live heatmap of the AI's probability calculations in real-time in the browser.</p>
 
