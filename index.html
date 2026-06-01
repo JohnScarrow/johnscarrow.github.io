@@ -526,13 +526,13 @@
   <section id="about">
     <h2>About</h2>
     <div class="card">
-      <p>CS student at North Idaho College with hands-on experience across multiple languages and problem domains. I have built everything from x86 Assembly programs and C++17 game engines to real-time ML inference pipelines and full-stack web applications. Strong in systems programming (C++, Assembly), Python scripting and ML (YOLOv8, OpenCV, MediaPipe), and modern web development (TypeScript, React, Express).</p>
+      <p>CS student at North Idaho College with hands-on experience across multiple languages and problem domains. I have built everything from x86 Assembly programs and C++17 game engines to real-time ML inference pipelines and full-stack web applications. Strong in systems programming (C++, Assembly, CUDA), Python ML/CV (YOLOv11, OpenCV, ONNX Runtime), and modern web development (TypeScript, React, Fastify, PostgreSQL).</p>
       <p class="strengths-title">Key strengths</p>
       <ul class="strengths-list">
-        <li>C++ &amp; x86 Assembly (systems programming)</li>
-        <li>Python (ML/CV — YOLOv8, OpenCV, MediaPipe)</li>
-        <li>Full-stack web (TypeScript, React, Express, PostgreSQL)</li>
-        <li>Machine learning &amp; WebAssembly demos</li>
+        <li>C++17, CUDA &amp; x86 Assembly (systems programming)</li>
+        <li>Python (ML/CV — YOLOv11, OpenCV, ONNX Runtime)</li>
+        <li>Full-stack web (TypeScript, React, Fastify, PostgreSQL)</li>
+        <li>Embedded deployment (Raspberry Pi, INT8 quantization)</li>
         <li>AWS cloud infrastructure</li>
       </ul>
     </div>
@@ -546,7 +546,7 @@
     <div class="featured-card">
       <span class="featured-tag"><span class="live-dot"></span>Live Demo</span>
       <h3>Battleship-ML — Live WebAssembly Demo</h3>
-      <p>C++ game engine compiled to WebAssembly via Emscripten. Two AI agents play against each other using a blend of Monte-Carlo sampling and heuristic weights — fully tunable via CLI parameter sweeps. Watch a live heatmap of the AI's probability calculations in real-time in the browser.</p>
+      <p>C++ Battleship AI that blends four probabilistic signals — a log-learned global heatmap, a live ship-placement coverage map, Monte Carlo sampling, and tactical bonuses — to minimize shots-to-win. Monte Carlo runs on a custom <strong>CUDA kernel</strong> (shared-memory atomics + cuRAND) and falls back to CPU automatically. Multi-threaded CLI tuner supports grid-search and online learning. Also compiles to <strong>WebAssembly</strong> — watch the AI's probability heatmap update live in the browser.</p>
 
       <div class="demo-wrapper">
         <div class="demo-preview" id="demo-preview">
@@ -563,10 +563,11 @@
       </div>
 
       <div class="badges">
-        <span class="badge">C++</span>
+        <span class="badge">C++17</span>
+        <span class="badge">CUDA</span>
         <span class="badge">WebAssembly</span>
         <span class="badge">Emscripten</span>
-        <span class="badge">ML Heuristics</span>
+        <span class="badge">Monte Carlo</span>
       </div>
 
       <div class="featured-actions">
@@ -582,12 +583,13 @@
       <div class="project-card">
         <h3>AutoDetect-Wildlife</h3>
         <span class="project-tag">CS-280 Robotics Final · 2026</span>
-        <p>Real-time wildlife detection for dashcam/forest-road use. Uses YOLOv8s for 60–80 FPS inference — significantly faster than the MegaDetector baseline. Filters detections to relevant forest-road animals, shows a red close-animal warning when a bounding box exceeds 35% of frame height, and supports a one-line swap to a custom-trained model.</p>
+        <p>Real-time wildlife detection for forest roads. Runs YOLOv11s at 60–80 FPS on a laptop; deploys to a Raspberry Pi 5 as a custom INT8-quantized ONNX model — no PyTorch required on device. Custom training pipeline merges Roboflow and LILA.science datasets (deer, elk, turkey, moose). Includes a close-animal collision warning and headless MJPEG stream mode.</p>
         <div class="badges">
           <span class="badge">Python</span>
-          <span class="badge">YOLOv8</span>
+          <span class="badge">YOLOv11</span>
+          <span class="badge">ONNX Runtime</span>
+          <span class="badge">Raspberry Pi</span>
           <span class="badge">OpenCV</span>
-          <span class="badge">Computer Vision</span>
         </div>
         <a href="https://github.com/JohnScarrow/AutoDetect-WIldLife" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
       </div>
